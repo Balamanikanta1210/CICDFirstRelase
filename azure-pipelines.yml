@@ -24,6 +24,11 @@ steps:
     orchestratorConnection: 'Uipath Orch'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
     traceLevel: 'Verbose'
+- task: UiPathDeploy@6
+  inputs:
+    orchestratorConnection: 'Uipath Orch'
+    packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
+    folderName: 'Test'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
